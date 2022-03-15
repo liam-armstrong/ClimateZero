@@ -1,10 +1,11 @@
-import { cartItem } from "../cart"
+import { cartData } from "../cart"
 import Button from 'react-bootstrap/Button'
 import { HiOutlinePlusSm, HiOutlineMinusSm } from "react-icons/hi";
+import { formatter } from "../utils"
 
 interface IProps {
   itemName: string,
-  cart: Record<string, cartItem>
+  cart: typeof cartData
   onClick: (itemName: string, add: boolean) => void
 }
 
@@ -24,8 +25,12 @@ const CartRow = ({itemName, cart, onClick}: IProps) => {
         </div>
         
         <h3>{itemName}</h3>
+        <h4 className="price-text">@ {formatter.format(itemData.price)} per unit</h4>
         
-        <h3 className="total">{itemData['quantity'] * itemData['price']}</h3> 
+        <h3 className="total">{
+          itemData['quantity'] === 0 ? 0 :
+          formatter.format(itemData['quantity'] * itemData['price'])
+        }</h3> 
       </div>
     )
   }

@@ -1,55 +1,75 @@
 #root {
-    -moz-osx-font-smoothing: grayscale;
-    color: #2e2d2b;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2e2d2b;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  
+  h1 {
+    font-family: 'Cardo', serif;
+    font-size: 32px;
+    line-height: 1.7em;
+  }
 
-    h1 {
-        font-family: 'Cardo', serif;
-        font-size: 32px;
-        line-height: 1.7em;
-    }
+  b {
+    font-weight: 600;
+  }
 }
 
 .app {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart {
-    width: 60vw;
+  width: 60vw;
 }
 
 .cart-row {
+  display: flex;
+  flex-direction: row;
+  width: 60vw;
+  margin-bottom: 10px;
+  align-items: center;  
+  
+  .controls {
     display: flex;
-    flex-direction: row;
-    width: 60vw;
-    margin-bottom: 10px;
+    width: 70px;
+    height: 1.5em;
+    margin-right: 10px;
+    justify-content: space-between;
     align-items: center;  
-
-    .controls {
-        display: flex;
-        width: 70px;
-        height: 1.5em;
-        margin-right: 10px;
-        justify-content: space-between;
-        align-items: center;  
-
-        button {
-            display: flex;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            border-radius: 10px;
-            width: 24px;
-        }
+    
+    button {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 10px;
+      width: 24px;
     }
+  }
 
-    .total {
-        margin-left: auto;
-    }
+  .price-text {
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 5px;
+    font-size: 0.9em;
+  }
+  
+  .total {
+    margin-left: auto;
+    text-align: right;
+    line-height: 1.5em;
+  }
+  
+  &.divider{
+    background-color: #F8F7F5;
+    padding: 10px 0px 8px 30px;
+    color: rgba(0,0,0,0.6)
+  }
 }
+
