@@ -1,0 +1,55 @@
+#root {
+    -moz-osx-font-smoothing: grayscale;
+    color: #2e2d2b;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+
+    h1 {
+        font-family: 'Cardo', serif;
+        font-size: 32px;
+        line-height: 1.7em;
+    }
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart {
+    width: 60vw;
+}
+
+.cart-row {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    margin-bottom: 10px;
+    align-items: center;  
+
+    .controls {
+        display: flex;
+        width: 70px;
+        height: 1.5em;
+        margin-right: 10px;
+        justify-content: space-between;
+        align-items: center;  
+
+        button {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 10px;
+            width: 24px;
+        }
+    }
+
+    .total {
+        margin-left: auto;
+    }
+}
