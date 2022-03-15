@@ -36,8 +36,7 @@ const ExtensionPopover = ({itemName, cart}: IProps) => {
   );  
   
   return (
-      // <OverlayTrigger trigger={['hover', 'focus']} placement="right" overlay={popover}>
-      <OverlayTrigger trigger='click' placement="right" overlay={popover}>
+      <OverlayTrigger trigger={['hover', 'focus']} placement="right" overlay={popover}>
         <h4 className="price-text extension-trigger">and Score: {itemData.score}</h4>
       </OverlayTrigger>
     )
