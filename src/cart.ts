@@ -1,7 +1,10 @@
+import { shuffle, distributeItems } from "./utils"
+
 export enum cartCategory{
     'PRODUCE',
     'MEAT',
-    'PANTRY'
+    'PANTRY',
+    'DAIRY',
 }
 
 export type cartItem = {
@@ -11,20 +14,135 @@ export type cartItem = {
     quantity: number
 }
 
-export const nullCartItem: cartItem = {
-    category: cartCategory.PRODUCE,
-    price: 1,
-    score: 1,
-    quantity: 0
-}
+//Data sourced from http://www.foodemissions.com/foodemissions/Calculator
 
-export const cartData: Record<string, cartItem> = {
+export const cart1Data: Record<string, cartItem> = {
     'Honeycrisp Apple': {
         category: cartCategory.PRODUCE,
         price: 1.05,
         score: 72,
         quantity: 0,
     },
+    'Fuji Apple': {
+        category: cartCategory.PRODUCE,
+        price: 2.00,
+        score: 85,
+        quantity: 0,
+    },
+    'Granny Smith Apple': {
+        category: cartCategory.PRODUCE,
+        price: 2.5,
+        score: 90,
+        quantity: 0,
+    },
+    'Organic Grassfed Ribeye Steak': {
+        category: cartCategory.MEAT,
+        price: 12.99,
+        score: 45,
+        quantity: 0,
+    },
+    'Lamb Shank (Pack of 4)': {
+        category: cartCategory.MEAT,
+        price: 21,
+        score: 58,
+        quantity: 0,
+    },
+    'White Rice (5kg)': {
+        category: cartCategory.PANTRY,
+        price: 13.49,
+        score: 41,
+        quantity: 0,
+    },
+    'Brown Rice (5kg)': {
+        category: cartCategory.PANTRY,
+        price: 15.49,
+        score: 50,
+        quantity: 0,
+    },
+    'Oat Milk': {
+        category: cartCategory.DAIRY,
+        price: 4.50,
+        score: 71,
+        quantity: 0,
+    },
+    'Dairy Milk, 3%': {
+        category: cartCategory.DAIRY,
+        price: 2.50,
+        score: 22,
+        quantity: 0,
+    },
+    'Black Beans': {
+        category: cartCategory.PANTRY,
+        price: 1.19,
+        score: 99,
+        quantity: 0,
+    },
+    'Red Beans': {
+        category: cartCategory.PANTRY,
+        price: 1.19,
+        score: 95,
+        quantity: 0,
+    },
+}
+
+export const cart2Data: Record<string, cartItem> = {
+    'Heirloom Tomato': {
+        category: cartCategory.PRODUCE,
+        price: 1.32,
+        score: 43,
+        quantity: 0,
+    },
+    'Roma Tomato': {
+        category: cartCategory.PRODUCE,
+        price: 2.00,
+        score: 30,
+        quantity: 0,
+    },
+    'Black Organic Grapes (Bag)': {
+        category: cartCategory.PRODUCE,
+        price: 4.59,
+        score: 40,
+        quantity: 0,
+    },
+    'Red Grapes (Bag)': {
+        category: cartCategory.PRODUCE,
+        price: 4.69,
+        score: 65,
+        quantity: 0,
+    },
+    'Chicken Breast (Pack of 4)': {
+        category: cartCategory.MEAT,
+        price: 13.00,
+        score: 77,
+        quantity: 0,
+    },
+    'Tofu': {
+        category: cartCategory.MEAT,
+        price: 3.54,
+        score: 95,
+        quantity: 0,
+    },
+    'American Cheese (Pack of 24)': {
+        category: cartCategory.DAIRY,
+        price: 7.99,
+        score: 60,
+        quantity: 0,
+    },
+    'Mozarella Cheese': {
+        category: cartCategory.DAIRY,
+        price: 4.99,
+        score: 70,
+        quantity: 0,
+    },
+    'Pepperjack Cheese': {
+        category: cartCategory.DAIRY,
+        price: 6.50,
+        score: 85,
+        quantity: 0,
+    },
+}
+
+export const sharedCartItems: Record<string, cartItem> = {
     'Large Avocado': {
         category: cartCategory.PRODUCE,
         price: 1.99,
@@ -35,48 +153,6 @@ export const cartData: Record<string, cartItem> = {
         category: cartCategory.PRODUCE,
         price: 2.10,
         score: 64,
-        quantity: 0,
-    },
-    'Heirloom Tomato': {
-        category: cartCategory.PRODUCE,
-        price: 1.32,
-        score: 38,
-        quantity: 0,
-    },
-    'Red Grapes (Bag)': {
-        category: cartCategory.PRODUCE,
-        price: 6.59,
-        score: 53,
-        quantity: 0,
-    },
-    'Ribeye Steak': {
-        category: cartCategory.MEAT,
-        price: 11.75,
-        score: 33,
-        quantity: 0,
-    },
-    'Chicken Breast (Pack of 4)': {
-        category: cartCategory.MEAT,
-        price: 13.00,
-        score: 77,
-        quantity: 0,
-    },
-    'Lamb Shank (Pack of 4)': {
-        category: cartCategory.MEAT,
-        price: 21,
-        score: 46,
-        quantity: 0,
-    },
-    'Tofu': {
-        category: cartCategory.MEAT,
-        price: 3.54,
-        score: 95,
-        quantity: 0,
-    },
-    'White Rice (5kg)': {
-        category: cartCategory.PANTRY,
-        price: 13.49,
-        score: 41,
         quantity: 0,
     },
     'Fusilli Pasta': {
@@ -102,5 +178,9 @@ export const cartData: Record<string, cartItem> = {
         price: 6.99,
         score: 84,
         quantity: 0,
-    }
+    },
 }
+
+export type cartData = typeof cart1Data
+
+export const carts = shuffle(distributeItems(cart1Data, cart2Data, sharedCartItems))

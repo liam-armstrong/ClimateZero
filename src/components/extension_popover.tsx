@@ -5,7 +5,7 @@ import { filterCartByCategory } from "../utils"
 
 interface IProps {
   itemName: string,
-  cart: typeof cartData
+  cart: cartData
 }
 
 const ExtensionPopover = ({itemName, cart}: IProps) => {
@@ -30,13 +30,13 @@ const ExtensionPopover = ({itemName, cart}: IProps) => {
         <strong> {rank}/{categoryData.length} </strong> 
         in the {cartCategory[itemData.category].toLocaleLowerCase()} category
         <br />
-        <a href="https://www.bbc.com/news/science-environment-46459714">Source</a>
+        <a href="http://www.foodemissions.com/foodemissions/Calculator">Source</a>
       </Popover.Body>
     </Popover>
   );  
   
   return (
-      <OverlayTrigger trigger={['hover', 'focus']} placement="right" overlay={popover}>
+      <OverlayTrigger trigger={['hover', 'focus', 'click']} placement="right" overlay={popover}>
         <h4 className="price-text extension-trigger">and Score: {itemData.score}</h4>
       </OverlayTrigger>
     )

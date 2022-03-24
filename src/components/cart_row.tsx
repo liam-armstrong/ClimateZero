@@ -5,7 +5,7 @@ import ExtensionPopover from "./extension_popover";
 
 interface IProps {
   itemName: string,
-  cart: typeof cartData
+  cart: cartData
   onClick: (itemName: string, add: boolean) => void,
   enableExtension: boolean,
 }
