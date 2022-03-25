@@ -2,19 +2,14 @@ import { useState } from "react"
 import Cart from "./CartScreen"
 import WelcomeModal from "./components/welcome_modal"
 import { carts } from "./cart"
-import { shuffle } from "./utils"
+import EndModal from "./components/end_modal"
+import { Firestore } from "firebase/firestore"
 
-// interface data_export {
-//   "p1StartTime": number,
-//   "p1EndTime": number,
-//   "p2StartTime": number,
-//   "p2EndTime": number
-// }
+interface IProps {
+  firestore: Firestore,
+}
 
-// State to accessor: 
-// { }
-
-export const App = () => {
+export const App = ({firestore}: IProps) => {
   const [dataExport, setDataExport] = useState({})
   const [endScreen, setEndScreen] = useState(false)
   const [welcomeScreen, setWelcomeScreen] = useState(true)
@@ -50,6 +45,6 @@ export const App = () => {
   return <div>
     <WelcomeModal isOpen={welcomeScreen} onClose={closeWelcomeModal} />
     {!welcomeScreen && !endScreen && prototypes[stageToPrototype[stage]]}
-    {endScreen && JSON.stringify(dataExport)}
+    <EndModal isOpen={endScreen} dataExport={dataExport} firestore={firestore}/>
   </div>
 }

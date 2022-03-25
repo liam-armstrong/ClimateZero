@@ -19,13 +19,13 @@ const CartRow = ({itemName, cart, onClick, enableExtension}: IProps) => {
           <button onClick={() => onClick(itemName, false)} disabled={itemData.quantity < 1} >
             <HiOutlineMinusSm /> 
           </button>
-          <h3>{itemData['quantity']}</h3> 
+          <p>{itemData['quantity']}</p> 
           <button onClick={() => onClick(itemName, true)}>
             <HiOutlinePlusSm /> 
           </button>
         </div>
         
-        <h3>{itemName}</h3>
+        <p>{itemName}</p>
         <h4 className="price-text">@ {formatter.format(itemData.price)}</h4>
 
         { enableExtension && <ExtensionPopover cart={cart} itemName={itemName} />}

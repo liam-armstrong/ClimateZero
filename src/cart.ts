@@ -71,13 +71,13 @@ export const cart1Data: Record<string, cartItem> = {
         score: 22,
         quantity: 0,
     },
-    'Black Beans': {
+    'Chickpeas': {
         category: cartCategory.PANTRY,
         price: 1.19,
         score: 99,
         quantity: 0,
     },
-    'Red Beans': {
+    'Black Beans': {
         category: cartCategory.PANTRY,
         price: 1.19,
         score: 95,
@@ -184,3 +184,17 @@ export const sharedCartItems: Record<string, cartItem> = {
 export type cartData = typeof cart1Data
 
 export const carts = shuffle(distributeItems(cart1Data, cart2Data, sharedCartItems))
+
+export const replacements: Record<string, string> = {
+    'Mozarella Cheese': 'Pepperjack Cheese',
+    'American Cheese (Pack of 24)': 'Pepperjack Cheese',
+    'Chicken Breast (Pack of 4)': 'Tofu',
+    'Black Organic Grapes (Bag)': 'Red Grapes (Bag)',
+    'Black Beans': 'Chickpeas',
+    'Roma Tomato': 'Heirloom Tomato',
+    'Dairy Milk, 3%': 'Oat Milk',
+    'White Rice (5kg)': 'Brown Rice (5kg)',
+    'Organic Grassfed Ribeye Steak': 'Lamb Shank (Pack of 4)',
+    'Fuji Apple': 'Granny Smith Apple',
+    'Honeycrisp Apple': 'Fuji Apple'
+}

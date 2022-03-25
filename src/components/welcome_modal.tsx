@@ -12,7 +12,8 @@ const WelcomeModal = ({isOpen, onClose}: IProps) => {
   const [name, setName] = useState('')
   const onHide = () => {
     onClose({
-      'name': name
+      'name': name,
+      'date': Date.now().toLocaleString()
     })
   }
   return (
@@ -29,7 +30,7 @@ const WelcomeModal = ({isOpen, onClose}: IProps) => {
         There will be two prototypes, so we're going to ask you to complete this shopping task twice, 
         while taking into account the different presentation of climate information available. Instructions for each 
         prototype will be available as they appear. <br/>
-        To start, enter your name:
+        To start, enter your name or an alias:
         <Form.Control type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
       </Modal.Body>
       <Modal.Footer>

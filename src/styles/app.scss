@@ -15,9 +15,25 @@
   b {
     font-weight: 600;
   }
+
+  .modal-body {
+    line-height: 1.25em;
+
+    input, select {
+      margin-top: 5px;
+    }
+  }
 }
 
 .app {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-container {
+  flex-grow: 2;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,7 +49,7 @@
   display: flex;
   flex-direction: row;
   width: 60vw;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   align-items: center;  
   
   .controls {
@@ -55,6 +71,10 @@
     }
   }
 
+  p {
+    font-size: 15px;
+  }
+
   .price-text {
     font-style: italic;
     font-weight: 400;
@@ -66,8 +86,10 @@
     color: #1271FF;
   }
   
-  .total {
+  &.total, .total {
     margin-left: auto;
+    justify-content: end;
+    display: flex;
     text-align: right;
     line-height: 1.5em;
   }
@@ -135,6 +157,65 @@
       margin: 0.5em 0px;
       width: 100%;
       border-bottom: 1px solid gray;
+    }
+  }
+}
+
+.suggestions-container {
+  background-color: rgba(18, 113, 255, 0.25);
+  width: 25vw;
+  margin: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border-radius: 10px;
+
+  h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    img {
+      width: 32px;
+      height: 32px;
+      margin-right: 5px;
+      filter: invert(53%) sepia(79%) saturate(6585%) hue-rotate(208deg) brightness(100%) contrast(106%);
+    }
+  }  
+
+  .suggestions-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .replacement-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid #1271FF;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: white;
+    line-height: 16px;
+
+    svg {
+      margin: 5px 0px;
+      height: 18px;
+      width: 18px;
+    }
+
+    .row-data {
+      margin-left: 15px;
     }
   }
 }
