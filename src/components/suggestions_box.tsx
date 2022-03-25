@@ -23,21 +23,22 @@ const SuggestionsBox = ({cart, replaceItems}: IProps) => {
     })
   } 
 
-  const replacementRows = replacementItems.map(([item, value]) => 
+  const replacementRows = replacementItems.map(([item, value], index) => 
     <SuggestionRow 
       cart={cart} 
       acceptSuggestion={acceptSuggestion} 
       originalItem={item}
       dismissSuggestion={dismissSuggestion}
+      key={index}
     />
   )
 
   return (
       <div className="suggestions-container">
-        <h3 className="blue">
+        <h1 className="blue">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Empty_set.svg" alt='logo'></img>
           Climate Zero Suggestions
-        </h3>
+        </h1>
         {replacementRows.length === 0 ? 
           <div className="suggestions-empty" >None yet!</div> : 
           replacementRows

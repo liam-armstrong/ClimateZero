@@ -20,7 +20,7 @@ interface IProps {
 
 export enum goalLevel {
   "Easy" = 60,
-  "Hard" = 80
+  "Hard" = 75
 }
 
 const Cart = ({p1, p2, onComplete, initialCart}: IProps) => {

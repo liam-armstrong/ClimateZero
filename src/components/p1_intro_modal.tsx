@@ -25,8 +25,8 @@ const P1IntroModal = ({isOpen, onClose}: IProps) => {
           We're first going to have you choose a goal level for your cart. The options for this are:
         </p>
         <ul>
-          <li><b className='blue'>Easy</b></li>
-          <li><b className='red'>Hard</b></li>
+          <li><b className='blue'>Easy (60/100)</b></li>
+          <li><b className='red'>Hard (75/100)</b></li>
         </ul>
         <p>
           This goal is the <b>average cart score</b> you want to achieve while shopping with ClimateZero

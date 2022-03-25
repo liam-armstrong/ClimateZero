@@ -31,9 +31,8 @@ const EndModal = ({dataExport, isOpen, firestore}: IProps) => {
       </Modal.Header>
       <Modal.Body>
         You've now completed the active portion of the experiment. Thank you for your help!
-        Please proceed to the following quick survey to answer a few questions about your experience:
-        <br/> <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_2nvEqksreZWAjB4">Survey Here</a> <br/> 
-        Feel free to close this page, and thank you again.
+        Please return to the qualtrics survey to answer a few quick questions about your experience.
+        You may now close this window. 
       </Modal.Body>
     </Modal>
     )

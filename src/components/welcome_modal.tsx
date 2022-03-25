@@ -13,7 +13,7 @@ const WelcomeModal = ({isOpen, onClose}: IProps) => {
   const onHide = () => {
     onClose({
       'name': name,
-      'date': Date.now().toLocaleString()
+      'date': new Date().toLocaleString('en-US')
     })
   }
   return (

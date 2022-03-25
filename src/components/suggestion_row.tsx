@@ -1,7 +1,6 @@
 import { cartData, replacements } from "../cart"
-import { HiOutlineX } from "react-icons/hi";
+import { HiOutlineCheck, HiOutlineX } from "react-icons/hi";
 import { formatter } from "../utils"
-import { useState } from "react";
 
 interface IProps {
   cart: cartData,
@@ -18,13 +17,14 @@ const SuggestionRow = ({cart, acceptSuggestion, originalItem, dismissSuggestion}
   const improvementRound = Math.round((improvementRaw + Number.EPSILON) * 100) / 100
 
   return (
-      <div className="replacement-row" onClick={() => acceptSuggestion(originalItem)}>
-        <HiOutlineX onClick={() => dismissSuggestion(originalItem)}/>
+      <div className="replacement-row">
+        <HiOutlineCheck onClick={(e) => {e.stopPropagation(); acceptSuggestion(originalItem)}}/>
         <div className="row-data">
           <p>{originalItem} to {replacementItem}</p>
           <p>{improvementRound}% improvement in climate factors</p>
           <p>{formatter.format(itemData.price * itemData.quantity)} to {formatter.format(replacementData.price * itemData.quantity)}</p>
         </div>
+        <HiOutlineX onClick={(e) => {e.stopPropagation(); dismissSuggestion(originalItem)}}/>
       </div>
     )
   }
