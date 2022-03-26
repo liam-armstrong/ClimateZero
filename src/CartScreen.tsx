@@ -67,7 +67,7 @@ const Cart = ({p1, p2, onComplete, initialCart}: IProps) => {
 
   const onCheckout = () => {
     onComplete({
-      [`${p1 ? 'p1' : 'p2'}numSeconds`]: `${Math.floor((Date.now() - startTime)/1000)}`,
+      [`${p1 ? 'p1' : 'p2'}numMilliSeconds`]: `${Math.floor(Date.now() - startTime)}`,
       [`${p1 ? 'p1' : 'p2'}totalPrice`]: `${subtotal}`,
       [`${p1 ? 'p1' : 'p2'}averageScore`]: `${averageScore}`,
       [`${p1 ? 'p1' : 'p2'}numReplacements`]: `${numReplacements}`
